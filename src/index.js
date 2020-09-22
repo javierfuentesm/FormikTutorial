@@ -29,10 +29,11 @@ const SignupForm = () => {
           .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
       })}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
+          resetForm({});
         }, 400);
       }}
     >
