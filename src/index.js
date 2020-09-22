@@ -24,39 +24,20 @@ const SignupForm = () => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-      />
+      <input id="name" type="text" {...formik.getFieldProps("name")} />
+
       {formik.touched.name && formik.errors.name ? (
         <div style={{ color: "red" }}>{formik.errors.name}</div>
       ) : null}
       <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.lastName}
-      />
+      <input id="lastName" type="text" {...formik.getFieldProps("lastName")} />
+
       {formik.touched.lastName && formik.errors.lastName ? (
         <div style={{ color: "red" }}>{formik.errors.lastName}</div>
       ) : null}
 
       <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
+      <input id="email" type="email" {...formik.getFieldProps("email")} />
       <br />
       {formik.touched.email && formik.errors.email ? (
         <div style={{ color: "red" }}>{formik.errors.email}</div>
