@@ -36,28 +36,32 @@ const SignupForm = () => {
         }, 400);
       }}
     >
-      <Form>
-        <MyTextInput
-          label="First Name"
-          name="firstName"
-          type="text"
-          placeholder="Input your name"
-        />
-        <MyTextInput
-          label="Last Name"
-          name="lastName"
-          type="text"
-          placeholder="Input your lastname"
-        />
-        <MyTextInput
-          label="Email Address"
-          name="email"
-          type="email"
-          placeholder="Input your email"
-        />
-        <br />
-        <button type="submit">Submit</button>
-      </Form>
+      {(formik) => (
+        <Form>
+          <MyTextInput
+            label="First Name"
+            name="firstName"
+            type="text"
+            placeholder="Input your name"
+          />
+          <MyTextInput
+            label="Last Name"
+            name="lastName"
+            type="text"
+            placeholder="Input your lastname"
+          />
+          <MyTextInput
+            label="Email Address"
+            name="email"
+            type="email"
+            placeholder="Input your email"
+          />
+          <br />
+          <button disabled={formik.isSubmitting} type="submit">
+            Submit
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };
